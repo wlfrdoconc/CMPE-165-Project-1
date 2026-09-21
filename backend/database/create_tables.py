@@ -1,12 +1,13 @@
 import sqlite3
+from database_operations import *
 
-connection = sqlite3.connect("sem_diff_predi.db")
-cursor = connection.cursor()
+conn = sqlite3.connect('sem_diff_predi.db')
+cur = conn.cursor()
 
-with open("schema.sql", "r") as f:
-    schema_sql = f.read()
+test = get_completed_course_ids(1)
+print(f'Completed_courses: {test}')
 
-cursor.executescript(schema_sql)
-
-connection.commit()
-connection.close()
+test2 = check_prerequisites(1, 1)
+print(f'prerequisites met status: {test2}')
+test3 = available_classes(1)
+print(f'Avaiable classes: {test3}')
