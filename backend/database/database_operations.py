@@ -1,5 +1,7 @@
+import math
 import os
 import sqlite3
+import statistics
 
 database_path = os.path.join(os.path.dirname(__file__), "sem_diff_predi.db")
 
@@ -140,16 +142,15 @@ def get_available_courses(student_id: int) -> list:
 
     return available
 
-# Calculate 
-
-# Allow the student to create a semester plan. 
+# Allow the student to create a semester plan. difficulty/workload/balance/warning start
+# as placeholders and are filled in later by finalize_semester_plan().
 def create_semester_plan(student_id: int, semester: str, semester_year: int) -> int:
     connection = sqlite3.connect(database_path)
     cursor = connection.cursor()
 
     cursor.execute("""
-        INSERT INTO semester_plan (student_id, semester, semester_year)
-        VALUES (?, ?, ?)
+        INSERT INTO semester_plan (student_id, semester, semester_year, difficulty_score, workload_hours, balance_rating, warning_message)
+        VALUES (?, ?, ?, 0, 0, 0, '')
     """, (student_id, semester, semester_year))
 
     plan_id = cursor.lastrowid
@@ -159,25 +160,163 @@ def create_semester_plan(student_id: int, semester: str, semester_year: int) -> 
 
     return plan_id
 
-# Allow the student to add courses to an existing semester plan
-def add_course_to_plan(plan_id: int, course_id: int, prior_experience) -> bool:
+# Allow the student to add courses to an existing semester plan. Each plan_course row's
+# difficulty_score/estimated_hours are copied from the course's own complexity_score/units
+# (same 2.5 hrs/unit rate as calculate_workload_hours) since they describe that one course.
+def add_course_to_plan(plan_id: int, course_id: int, prior_experience: str) -> bool:
     connection = sqlite3.connect(database_path)
     cursor = connection.cursor()
 
-    check_plan_id_exists = cursor.execute("""
+    plan_exists = cursor.execute("""
         SELECT plan_id FROM semester_plan
         WHERE plan_id = ?
-    """ (plan_id, ))
+    """, (plan_id, )).fetchone()
 
-    if not check_plan_id_exists:
+    if plan_exists is None:
+        connection.close()
         return False
 
+    course = cursor.execute("""
+        SELECT complexity_score, units FROM course
+        WHERE course_id = ?
+    """, (course_id, )).fetchone()
+
+    if course is None:
+        connection.close()
+        return False
+
+    complexity_score, units = course
+    estimated_hours = math.ceil(units * 2.5)
+
     cursor.execute("""
-        INSERT INTO plan_course (plan_id, course_id, prior_experience)
-        VALUES (?, ?, ?)
-    """, (plan_id, course_id, prior_experience))
+        INSERT INTO plan_course (plan_id, course_id, prior_experience, difficulty_score, estimated_hours)
+        VALUES (?, ?, ?, ?, ?)
+    """, (plan_id, course_id, prior_experience, complexity_score, estimated_hours))
 
     connection.commit()
     connection.close()
 
     return True
+
+# Returns the set of course_ids currently in a semester plan.
+def get_plan_course_ids(plan_id: int) -> set:
+    connection = sqlite3.connect(database_path)
+    cursor = connection.cursor()
+
+    plan_course_ids = cursor.execute("""
+        SELECT course_id FROM plan_course
+        WHERE plan_id = ?
+    """, (plan_id, )).fetchall()
+
+    connection.close()
+
+    result = set()
+
+    for course_id in plan_course_ids:
+        result.add(course_id[0])
+
+    return result
+
+# Estimated weekly workload for a plan: 2.5 hours per unit, rounded up.
+def calculate_workload_hours(plan_id: int) -> int:
+    connection = sqlite3.connect(database_path)
+    cursor = connection.cursor()
+
+    total_units = cursor.execute("""
+        SELECT SUM(course.units) FROM plan_course
+        JOIN course ON plan_course.course_id = course.course_id
+        WHERE plan_course.plan_id = ?
+    """, (plan_id, )).fetchone()[0]
+
+    connection.close()
+
+    if total_units is None:
+        total_units = 0
+
+    return math.ceil(total_units * 2.5)
+
+# Overall difficulty of a plan: sum of complexity_score across its courses.
+def calculate_difficulty_score(plan_id: int) -> int:
+    connection = sqlite3.connect(database_path)
+    cursor = connection.cursor()
+
+    total_complexity = cursor.execute("""
+        SELECT SUM(course.complexity_score) FROM plan_course
+        JOIN course ON plan_course.course_id = course.course_id
+        WHERE plan_course.plan_id = ?
+    """, (plan_id, )).fetchone()[0]
+
+    connection.close()
+
+    if total_complexity is None:
+        return 0
+
+    return int(total_complexity)
+
+# Rates how consistent the plan's course difficulty is (1-5). Complexity scores are on a
+# 1-10 scale, so a low spread (courses of similar difficulty) rates high, and a wide spread
+# (e.g. very easy courses mixed with very hard ones) rates low.
+def calculate_balance_rating(plan_id: int) -> int:
+    connection = sqlite3.connect(database_path)
+    cursor = connection.cursor()
+
+    rows = cursor.execute("""
+        SELECT course.complexity_score FROM plan_course
+        JOIN course ON plan_course.course_id = course.course_id
+        WHERE plan_course.plan_id = ?
+    """, (plan_id, )).fetchall()
+
+    connection.close()
+
+    scores = [row[0] for row in rows]
+
+    if not scores:
+        return 5
+
+    spread = statistics.pstdev(scores)
+
+    if spread == 0:
+        return 5
+    elif spread <= 1.5:
+        return 4
+    elif spread <= 3.0:
+        return 3
+    elif spread <= 4.5:
+        return 2
+    else:
+        return 1
+
+# Flags a heavy semester: 40+ estimated hours per week.
+def generate_warning_message(workload_hours: int) -> str:
+    if workload_hours >= 40:
+        return f"Warning: this semester has a heavy estimated workload of {workload_hours} hours per week."
+
+    return ""
+
+# Writes computed values back into an existing semester_plan row.
+def update_semester_plan(plan_id: int, difficulty_score: int, workload_hours: int, balance_rating: int, warning_message: str) -> bool:
+    connection = sqlite3.connect(database_path)
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        UPDATE semester_plan
+        SET difficulty_score = ?, workload_hours = ?, balance_rating = ?, warning_message = ?
+        WHERE plan_id = ?
+    """, (difficulty_score, workload_hours, balance_rating, warning_message, plan_id))
+
+    updated = cursor.rowcount > 0
+
+    connection.commit()
+    connection.close()
+
+    return updated
+
+# Computes difficulty_score, workload_hours, balance_rating and warning_message for a plan
+# and writes them back to its semester_plan row.
+def finalize_semester_plan(plan_id: int) -> bool:
+    difficulty_score = calculate_difficulty_score(plan_id)
+    workload_hours = calculate_workload_hours(plan_id)
+    balance_rating = calculate_balance_rating(plan_id)
+    warning_message = generate_warning_message(workload_hours)
+
+    return update_semester_plan(plan_id, difficulty_score, workload_hours, balance_rating, warning_message)
