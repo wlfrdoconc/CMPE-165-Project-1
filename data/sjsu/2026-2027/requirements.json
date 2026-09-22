@@ -1,0 +1,19 @@
+{
+  "catalog_year": "2026-2027",
+  "major": "Software Engineering, BS",
+  "source_url": "https://catalog.sjsu.edu/preview_program.php?catoid=23&poid=18924",
+  "total_units": 120,
+  "required_courses": ["ENGL 1B", "MATH 30", "MATH 31", "MATH 42", "PHYS 50", "CS 46A", "CS 46B", "ENGR 10", "CMPE 70", "CMPE 120", "CMPE 131", "CMPE 148", "CMPE 165", "CMPE 172", "CMPE 187", "CS 146", "CS 149", "CS 157A", "CS 166", "ISE 164", "CMPE 195A", "CMPE 195B", "ENGR 195A", "ENGR 195B", "ENGR 100W"],
+  "choose_one": [["MATH 33LA", "MATH 142"], ["MATH 161A", "ISE 130"]],
+  "math_science_electives": {"units": 7, "ge_areas": ["5A", "5B", "5C"], "course_options": ["MATH 32", "MATH 108", "MATH 115", "MATH 126", "MATH 142", "MATH 150", "MATH 170"], "note": "Do not allocate the same units to two distinct requirement blocks without official approval."},
+  "life_science": {"ge_area": "5B", "minimum_units": 3},
+  "technical_electives": {"units": 6, "level": "Upper division", "approval": "Selected in consultation with the student's advisor; no fixed course list published on the degree page."},
+  "university_electives": {"units": 6, "level": "Lower or upper division"},
+  "waivers": ["GE 1B", "Physical Education"],
+  "remaining_ge_areas": ["1A", "1C", "3A", "4", "6"],
+  "major_ge_overlap": {"2": ["MATH 30", "MATH 31"], "3B": ["ENGL 1B"], "5A/5C": ["PHYS 50"], "5B": ["Approved life science choice"], "UD 2/5": ["ENGR 100W"], "UD 3/4": ["CMPE 195A + CMPE 195B + ENGR 195A + ENGR 195B; sequence and minimum C grades required"]},
+  "american_institutions": {"units": 6, "requirements": ["US1", "US2", "US3"], "note": "Can overlap applicable GE choices. Course and sequence conditions must be verified; not all Area 4 courses satisfy US requirements."},
+  "degree_grade_minimum": "C- for preparation and required major courses",
+  "higher_grade_minimums": {"MATH 30": "C", "MATH 31": "C", "PHYS 50": "C", "ENGR 100W": "C for GWAR", "CMPE 195A": "C for GE", "CMPE 195B": "C for GE", "ENGR 195A": "C for GE", "ENGR 195B": "C for GE"},
+  "scope": "Reference requirements; not a complete automated degree audit. Residence, GPA, articulation, discipline distribution, enrollment restrictions, and repeat-credit rules require official review."
+}

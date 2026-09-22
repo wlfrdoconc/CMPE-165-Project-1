@@ -1,0 +1,12 @@
+{
+  "catalog_year": "2026-2027",
+  "retrieved_on": "2026-09-21",
+  "course_count": 492,
+  "ge_course_count": 467,
+  "ge_listing_count": 475,
+  "sha256": "1322c7f6cca5330f70b52044a576035b6c9313d9094fc5849d4dbfa247ab6312",
+  "method": "Official public catalog pages read in browser; raw text retained. Offline deterministic normalization.",
+  "program_url": "https://catalog.sjsu.edu/preview_program.php?catoid=23&poid=18924",
+  "ge_url": "https://catalog.sjsu.edu/preview_program.php?catoid=23&poid=18673",
+  "roadmap_url": "https://catalog.sjsu.edu/preview_program.php?catoid=23&poid=19349&returnto=8647"
+}

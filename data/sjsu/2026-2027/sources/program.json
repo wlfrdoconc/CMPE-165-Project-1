@@ -1,0 +1,118 @@
+{
+  "links": [
+    {
+      "onclick": "showCourse('23', '198582',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219682~;}'); return false;",
+      "text": "ENGL 1B - Argument and Analysis"
+    },
+    {
+      "onclick": "showCourse('23', '198077',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219682~;}'); return false;",
+      "text": "MATH 30 - Calculus I"
+    },
+    {
+      "onclick": "showCourse('23', '198088',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219682~;}'); return false;",
+      "text": "MATH 31 - Calculus II"
+    },
+    {
+      "onclick": "showCourse('23', '200890',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219682~;}'); return false;",
+      "text": "MATH 42 - Discrete Mathematics"
+    },
+    {
+      "onclick": "showCourse('23', '197802',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219682~;}'); return false;",
+      "text": "PHYS 50 - General Physics I: Mechanics"
+    },
+    {
+      "onclick": "showCourse('23', '202695',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219683~;}'); return false;",
+      "text": "MATH 33LA - Differential Equations and Linear Algebra"
+    },
+    {
+      "onclick": "showCourse('23', '200916',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219683~;}'); return false;",
+      "text": "MATH 142 - Introduction to Combinatorics"
+    },
+    {
+      "onclick": "showCourse('23', '200361',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219684~;}'); return false;",
+      "text": "ISE 130 - Engineering Probability and Statistics"
+    },
+    {
+      "onclick": "showCourse('23', '200919',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219684~;}'); return false;",
+      "text": "MATH 161A - Applied Probability and Statistics I"
+    },
+    {
+      "onclick": "showCourse('23', '198970',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219686~;}'); return false;",
+      "text": "CS 46A - Introduction to Programming"
+    },
+    {
+      "onclick": "showCourse('23', '198971',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219686~;}'); return false;",
+      "text": "CS 46B - Introduction to Data Structures"
+    },
+    {
+      "onclick": "showCourse('23', '199563',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219686~;}'); return false;",
+      "text": "ENGR 10 - Introduction to Engineering"
+    },
+    {
+      "onclick": "showCourse('23', '198753',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CMPE 70 - Assembly Language Programming"
+    },
+    {
+      "onclick": "showCourse('23', '198754',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CMPE 120 - Computer Organization and Architecture"
+    },
+    {
+      "onclick": "showCourse('23', '198760',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CMPE 131 - Software Engineering I"
+    },
+    {
+      "onclick": "showCourse('23', '198768',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CMPE 148 - Computer Networks I"
+    },
+    {
+      "onclick": "showCourse('23', '198808',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CMPE 165 - Software Engineering Process Management"
+    },
+    {
+      "onclick": "showCourse('23', '198820',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CMPE 172 - Large Scale Systems"
+    },
+    {
+      "onclick": "showCourse('23', '198813',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CMPE 187 - Software Quality Engineering"
+    },
+    {
+      "onclick": "showCourse('23', '198982',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CS 146 - Data Structures and Algorithms"
+    },
+    {
+      "onclick": "showCourse('23', '198984',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CS 149 - Operating Systems"
+    },
+    {
+      "onclick": "showCourse('23', '198991',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CS 157A - Introduction to Database Management Systems"
+    },
+    {
+      "onclick": "showCourse('23', '199022',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CS 166 - Information Security"
+    },
+    {
+      "onclick": "showCourse('23', '200367',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "ISE 164 - Computer and Human Interaction"
+    },
+    {
+      "onclick": "showCourse('23', '200883',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CMPE 195A - Senior Design Project I"
+    },
+    {
+      "onclick": "showCourse('23', '201828',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "CMPE 195B - Senior Design Project II"
+    },
+    {
+      "onclick": "showCourse('23', '200913',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "ENGR 195A - Global and Social Issues in Engineering"
+    },
+    {
+      "onclick": "showCourse('23', '201894',this, 'a:2:{s:8:~location~;s:7:~program~;s:4:~core~;s:6:~219687~;}'); return false;",
+      "text": "ENGR 195B - Global and Social Issues in Engineering"
+    }
+  ],
+  "text": "Skip to Content\nSAN JOSÉ STATE UNIVERSITY\nVISIT\nAPPLY\nGIVE\nMENU\nSEARCH\nAbout\n \n\n\n \t\t \t\n \t\nSelect a Catalog\n2026-2027 Academic Catalog\nMyRoadmaps Catalog\n2025-2026 Academic Catalog [ARCHIVED CATALOG]\n2024-2025 Academic Catalog [ARCHIVED CATALOG]\n2023-2024 Academic Catalog [ARCHIVED CATALOG]\n2022-2023 Academic Catalog [ARCHIVED CATALOG]\n2021-2022 Academic Catalog [ARCHIVED CATALOG]\n2020-2021 Academic Catalog [ARCHIVED CATALOG]\n2019-2020 Academic Catalog [ARCHIVED CATALOG]\n2026-2027 Academic Catalog\n\n\nCatalog Search\nSelect an option\nCourses\nPrograms\nDepartments and Colleges\nPolicies and Procedures\nEntire Catalog\nEntire Catalog\nS\nearch\n Whole Word/Phrase\nAdvanced Search\n\n\nCatalog Home\nColleges and Departments\nAcademic Programs\nCourse Descriptions\n\n\nGeneral Education Requirements\nUndergraduate University Graduation Requirements\nGraduate Studies Requirements\n\n\nAcademic Calendar\nPolicies and Procedures\nPrograms & Services\nStudent Rights, Responsibilities & Conduct\n\n\nArchived Catalogs\nArticulation\nClass Schedules\nGraduate Advisor Directory\nUndergraduate Advisor Directory\nMy Roadmaps\n\n\nMy Favorites\n\t\na\nAdd to My Favorites (opens a new window)\nShare this Page\nPrint (opens a new window)\nHelp (opens a new window)\nSoftware Engineering, BS\n\n\n\n Return to: Academic Programs\n\nThe Bachelor of Science degree in Software Engineering (BSSE), offered by the Department of Computer Engineering, goes beyond programming to include engineering methodologies and hands-on project experience. The program prepares students to become qualified engineers for IT leading companies in Silicon Valley and international engineering market by providing them with state-of-the-art engineering methods, emergent technologies, team work experience, and solutions so they are capable to address design, coding, validation, and measurement issues for the construction of large-scale computer systems and software applications in the real world. The Software Engineering Bachelor of Science degree program is accredited by the Engineering Accreditation Commission of ABET, under the General Program Criteria and the Software and Similarly Named Engineering Programs Program Criteria.\n\nProgram Learning Outcomes \n\nProgram Roadmaps\n\nThe 4-Year Roadmap is available online. Roadmaps should be used in consultation with the catalog and your advisor to identify additional requirements for completing the major (for example, course grade minimums). Associate Degrees (ADT) Pathways are also available online.\n\nMajor-Specific Graduation Requirements\n\nAll courses in the Preparation and Required in Major (all courses in preparation, core, and concentration) must be completed with a grade of “C- or better”. The following Preparation for the Major courses must be completed with a grade of “C or better”: MATH 30, MATH 31, and PHYS 50.  CMPE 195A/CMPE 195B and ENGR 195A/ENGR 195B must be completed with C or better to meet GE Area requirements\n\n\n\n1. Complete the Baccalaureate Degree Requirements\n\nStudents must satisfy the specific degree requirements for their undergraduate major and fulfill the following University degree requirements: \n\nAcademic (program total units with an average 2.0 GPA - “C” or better)\n\nGeneral Education (GE) (34 Lower Division + 9 Upper Division) \n\nAmerican Institutions (AI) (0-6 units) (may be satisfied in GE Areas 3B, 4, UD 3, UD 4)\n\nGraduation Writing Assessment Requirement (GWAR) (3 units)\n\nPhysical Education (PE) (0-2 units)\n\nUnits in Residence (30 units, including 24 upper division and 12 in major)  \n\nUpper Division Units (40 units, including 12 upper div in major for BA, 18 upper div in major for BS)​\n\nUndergraduate Admission Procedures and Policies  \n\nApply for Graduation \nInformation about the Commencement Ceremony and Conferral of the Degree \n\n Exceptions for University Graduation Requirements including exemptions and waivers, are approved for specific majors and on a case-by-case evaluation only.\n\nSummary of Degree Units\n\nCore Lower Division GE: 12 (13 units may be satisfied by major coursework: Areas 5A, 5B, 5C, 2, 3B; 3 units of 1B waived)\n\n6 required units of American Institutions/US123 may be satisfied by selecting applicable GE courses in Area 4\n\nUpper Division GE: 0 (9 units may be satisfied by major coursework: UD Areas 2or5, 3, 4)\n\nPhysical Education: 0 (waived)\n\nGWAR / WID: 3 (Required: ENGR 100W)\n\nMajor Preparation: 33\n\nMajor Requirements: 60\n\nUniversity Electives: 6\n\nTotal: 120\n\n2. Major Preparation (33 units)\n\nStudents must complete the following courses with “C” or better to graduate: MATH 30, MATH 31, PHYS 50. The remaining courses in Preparation for the Major must be completed with “C-” or better to graduate.\n\nGE Area 5B (minimum 3 units)\nENGL 1B - Argument and Analysis 3 unit(s) (GE Area 3B / Formerly Area C2) (or equivalent second semester composition course.)\nMATH 30 - Calculus I 3 unit(s) (GE Area 2 / Formerly Area B4)\nMATH 31 - Calculus II 4 unit(s) (GE Area 2 / Formerly Area B4)\nMATH 42 - Discrete Mathematics 3 unit(s)\nPHYS 50 - General Physics I: Mechanics 4 unit(s) (GE Area 5A and 5C / Formerly Area B1 and B3)\nComplete One Course From:\nMATH 33LA - Differential Equations and Linear Algebra 3 unit(s)\nMATH 142 - Introduction to Combinatorics 3 unit(s)\nComplete One Course From:\nISE 130 - Engineering Probability and Statistics 3 unit(s)\nMATH 161A - Applied Probability and Statistics I 3 unit(s)\nComplete Additional Math/Science Electives (7 units)\n\nStudents must complete a total of 7 units from any of the following courses.\n\nAny GE Area 5 course\n\nMATH 32 Calculus III 3 unit(s) (GE Area 2 / Formerly Area B4)\n\nMATH 108 Introduction to Abstract Mathematics and Proofs 3 unit(s) \n\nMATH 115 Modern Geometry and Transformations 3 unit(s) \n\nMATH 126 Theory of Numbers 3 unit(s) \n\nMATH 142 Introduction to Combinatorics 3 unit(s) \n\nMATH 150 Theory of Interest 3 unit(s) \n\nMATH 170 Mathematical Modeling for the Life Sciences 3 unit(s) \n\n3. Major Requirements (60 units)\n\nStudents must complete all the courses in Core Courses, Required Courses and Approved Upper Division Electives sections with “C-” or better to graduate.\n\nCore Courses (11 units)\nCS 46A - Introduction to Programming 4 unit(s)\nCS 46B - Introduction to Data Structures 4 unit(s)\nENGR 10 - Introduction to Engineering 3 unit(s)\nMajor Courses (43 units)\n\nNote: Must Complete CMPE 195A/CMPE 195B and ENGR 195A/ENGR 195B with C or Better to meet GE Area requirements\n\nCMPE 70 - Assembly Language Programming 3 unit(s)\nCMPE 120 - Computer Organization and Architecture 3 unit(s)\nCMPE 131 - Software Engineering I 3 unit(s)\nCMPE 148 - Computer Networks I 3 unit(s)\nCMPE 165 - Software Engineering Process Management 3 unit(s)\nCMPE 172 - Large Scale Systems 3 unit(s)\nCMPE 187 - Software Quality Engineering 3 unit(s)\nCS 146 - Data Structures and Algorithms 3 unit(s)\nCS 149 - Operating Systems 3 unit(s)\nCS 157A - Introduction to Database Management Systems 3 unit(s)\nCS 166 - Information Security 3 unit(s)\nISE 164 - Computer and Human Interaction 3 unit(s)\n\n \n\nSenior Design:\n\nCMPE 195A - Senior Design Project I 2 unit(s) (GE UD Area 4 / Formerly Area S)\nCMPE 195B - Senior Design Project II 3 unit(s) (GE UD Area 3 / Formerly Area V)\nENGR 195A - Global and Social Issues in Engineering 1 unit(s) (GE UD Area 4 / Formerly Area S)\nENGR 195B - Global and Social Issues in Engineering 1 unit(s) (GE UD Area 3 / Formerly Area V)\nApproved Upper Division Electives (6 units)\nSelected in consultation with the student’s advisor\n4. University Electives (6 units)\n\nLower or Upper Division Courses.\n\nTotal Units Required (120 units)\n\n Return to: Academic Programs\n\n\n\na\nAdd to My Favorites (opens a new window)\nShare this Page\nPrint (opens a new window)\nHelp (opens a new window)\n\n\n\n\n\nSan José State University\n\nSJSU on Facebook\nSJSU on Twitter\nSJSU on LinkedIn\nSJSU on Instagram\nSJSU on YouTube\n\nOne Washington Square\nSan José, CA 95192\n408-924-1000\nSJSU Online\nAccessibility\nAccreditation\nTitle IX\nDiversity\nLand Acknowledgement\nPrivacy\nCOLLEGES\nBusiness\nEducation\nEngineering\nGraduate Studies\nHealth and Human Sciences\nHumanities and the Arts\nProfessional and Global Education\nScience\nSocial Sciences\nRESOURCES\nA-Z Index\nAnnual Security Report [pdf]\nBookstore\nCalendars\nCareers and Jobs\nCatalog\nCurrent Students\nEmergency Food & Housing\nFreedom of Speech\nKing Library\nNewsCenter\nParenting Students\nParking and Maps\nCONTACT US\nContact Form\nDirectory\nDoing Business with SJSU\nEmergency Info\nReport a Web Problem\nReport a Title IX Complaint\nAll catalogs © 2026 San José State University. Powered by Modern Campus Catalog™.\nBy clicking “Accept All Cookies” or closing this banner without selecting “Reject All,” you consent to the use of all cookies. To use only essential cookies, select “Reject All.” You may change your preferences at any time in Cookie Settings. CSU Privacy Notice\nCookie Settings Reject All Accept All Cookies",
+  "url": "https://catalog.sjsu.edu/preview_program.php?catoid=23&poid=18924&returnto=8470"
+}
