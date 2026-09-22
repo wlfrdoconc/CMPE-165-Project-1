@@ -9,7 +9,29 @@ from predictor import repository
 from predictor.eligibility import Student, GRADES, check
 from predictor.scoring import estimate_semester
 
-st.set_page_config(page_title='Semester Compass · SJSU SWE',page_icon='🧭',layout='wide')
+st.set_page_config(page_title='Semester Compass · SJSU SWE',page_icon='🧭',layout='centered')
+
+st.markdown('''
+<style>
+.block-container{padding-top:2.5rem;padding-bottom:4rem;max-width:820px;}
+h1,h2,h3{letter-spacing:-.01em;}
+h1{font-weight:700;}
+/* Tabs */
+div[data-baseweb="tab-list"]{gap:.25rem;border-bottom:1px solid #e5e9f0;margin-bottom:1.25rem;}
+button[data-baseweb="tab"]{padding:.5rem .9rem;font-weight:500;}
+/* Buttons */
+.stButton>button,.stDownloadButton>button,.stLinkButton>a,.stFormSubmitButton>button{border-radius:10px;font-weight:600;}
+/* Bordered containers as clean cards */
+div[data-testid="stVerticalBlockBorderWrapper"]{border-radius:14px;border-color:#e5e9f0;}
+/* Metrics as soft cards */
+div[data-testid="stMetric"]{background:#f7f9fc;border:1px solid #eef1f6;border-radius:12px;padding:.9rem 1rem;}
+/* Inputs */
+div[data-baseweb="select"]>div,.stTextInput input,.stTextArea textarea,.stNumberInput input{border-radius:10px;}
+/* Expanders */
+details{border-radius:12px !important;border-color:#e5e9f0 !important;}
+</style>
+''',unsafe_allow_html=True)
+
 @st.cache_resource
 def bootstrap():
     """Create the local database and return its course records."""
