@@ -6,6 +6,9 @@ textColor = "#1f2933"
 font = "sans serif"
 [server]
 headless = true
-address = "127.0.0.1"
+address = "0.0.0.0"
+enableCORS = false
+enableXsrfProtection = false
+enableWebsocketCompression = false
 [browser]
 gatherUsageStats = false
