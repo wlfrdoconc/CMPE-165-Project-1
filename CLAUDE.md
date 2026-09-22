@@ -58,16 +58,15 @@ Plain functions, no class — each operation is self-contained (connect, do one 
 - `get_completed_course_ids(student_id) -> list[int]` — all course IDs a student has completed.
 - `check_prerequisites(course_id, student_id) -> list[int]` — always returns a list; empty means all prerequisites are met, non-empty lists the missing prerequisite course IDs.
 - `get_available_courses(student_id) -> list[int]` — courses not yet completed AND with no missing prerequisites, using the two functions above.
-- `create_semester_plan(student_id, semester, semester_year) -> int` — inserts a `semester_plan` row (difficulty/workload/balance/warning fields left for later), returns the new `plan_id`.
-- `add_course_to_plan(plan_id, course_id, prior_experience) -> bool` — validates `plan_id` exists, then inserts into `plan_course`.
-
-**In progress / not yet started (MVP step 4 — "tell the user how difficult the semester will be"):**
-- Helper to get all `course_id`s for a given `plan_id` from `plan_course` (same shape as `get_completed_course_ids`, querying `plan_course` instead).
-- `calculate_workload_hours(plan_id) -> int` — **designed, not yet implemented.** See formula below.
-- Calculation for `difficulty_score` — combining each selected course's `complexity_score`. Formula not yet finalized by the team; starting point is aggregating `complexity_score` across the plan's courses. Still deciding sum vs. average.
-- Calculation for `balance_rating`.
-- `warning_message` generation logic (not yet designed).
-- Function(s) to write these computed values back into the existing `semester_plan` row — an `UPDATE`, not an `INSERT`, since the row already exists from `create_semester_plan`.
+- `create_semester_plan(student_id, semester, semester_year) -> int` — inserts a `semester_plan` row with placeholder `0`/`0`/`0`/`''` for `difficulty_score`/`workload_hours`/`balance_rating`/`warning_message` (schema requires `NOT NULL`, and the real values aren't known until courses are added), returns the new `plan_id`. Overwritten later by `finalize_semester_plan`.
+- `add_course_to_plan(plan_id, course_id, prior_experience) -> bool` — validates `plan_id` and `course_id` both exist, then inserts into `plan_course`. Derives that row's `difficulty_score`/`estimated_hours` from the course's own `complexity_score`/`units` (same 2.5 hrs/unit rate as `calculate_workload_hours`).
+- `get_plan_course_ids(plan_id) -> set[int]` — all course IDs in a given plan (same shape as `get_completed_course_ids`, querying `plan_course` instead).
+- `calculate_workload_hours(plan_id) -> int` — see formula below.
+- `calculate_difficulty_score(plan_id) -> int` — **sum** of `complexity_score` across the plan's courses (team decided sum over average: total load should scale with course count).
+- `calculate_balance_rating(plan_id) -> int` — 1–5 rating from the population std-dev of `complexity_score` across the plan's courses (assumes `complexity_score` is on a 1–10 scale). Low spread (consistently-difficulty courses) → 5; high spread (very easy mixed with very hard) → 1. Thresholds: 0 → 5, ≤1.5 → 4, ≤3.0 → 3, ≤4.5 → 2, else 1. A plan with 0–1 courses returns 5 (nothing to be unbalanced about).
+- `generate_warning_message(workload_hours) -> str` — returns a heavy-workload message when `workload_hours >= 40`, else `""`.
+- `update_semester_plan(plan_id, difficulty_score, workload_hours, balance_rating, warning_message) -> bool` — `UPDATE`s the existing `semester_plan` row (not an `INSERT` — the row already exists from `create_semester_plan`). Returns `False` if `plan_id` doesn't exist.
+- `finalize_semester_plan(plan_id) -> bool` — runs the four calculations above and writes them back via `update_semester_plan`. This is the entry point for MVP step 4 ("tell the user how difficult that semester will be") — call it once a student has finished adding courses to a plan.
 
 ### `calculate_workload_hours(plan_id)` — design
 
@@ -81,6 +80,8 @@ workload_hours = ceil(total_units * 2.5)
 - `total_units` comes from summing `course.units` across every course in the given plan (join `plan_course` → `course` on `course_id`).
 - Round up (`math.ceil`, not `round()`) on the final result only — not on the per-unit rate — so the estimate stays honest and only nudges conservative at the very last step.
 - `workload_hours` is `INTEGER` in the schema, so the result must be an int after rounding.
+
+**Note:** the `difficulty_score` (sum vs. average), `balance_rating` definition, and the 40-hr `warning_message` threshold above were not finalized by the team before implementation — they're a reasonable starting point, not a signed-off design. Sanity-check them against what the frontend/UX expects and adjust if needed.
 
 ## Key SQLite Practices Used
 
